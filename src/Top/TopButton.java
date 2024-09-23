@@ -4,9 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * Класс вызывается при нажатии на кнопку "Верх".
+ * Открывает окно "Верх", позволяющее пользователю выбрать дополнительные предметы верхней одежды.
+ */
 public class TopButton implements ActionListener {
+    //Ссылка на главное окно приложения
     private JFrame frame;
+    //Массив, хранящий выбранные пользователем категории одежды
     private boolean[] userSelection;
+    //Координаты центра экрана для размещения нового окна
     private int centerX, centerY;
 
     public TopButton(JFrame frame, boolean[] userSelection, int centerX, int centerY) {
@@ -16,6 +23,16 @@ public class TopButton implements ActionListener {
         this.centerY = centerY;
     }
 
+    /**
+     * Метод, вызываемый при нажатии на кнопку "Верх".
+     *
+     * Выполняет следующие действия:
+     *  - Скрывает текущее окно.
+     *  - Создает новое окно для выбора дополнительных предметов верхней одежды.
+     *  - Добавляет в новое окно кнопки для выбора различных типов верхней одежды.
+     *  - При закрытии окна "Верх" восстанавливает видимость главного окна.
+     *
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         frame.setVisible(false);
@@ -25,6 +42,7 @@ public class TopButton implements ActionListener {
         topFrame.setLocation(centerX, centerY);
         topFrame.setLayout(new FlowLayout());
 
+        //Создаем кнопки для выбора различных видов верхней одежды
         JButton buttonBlouse = new JButton("Блузки/рубашки");
         buttonBlouse.addActionListener(new BlouseButton(topFrame, userSelection, centerX, centerY));
 
@@ -39,6 +57,7 @@ public class TopButton implements ActionListener {
         topFrame.add(buttonJacket);
         topFrame.setVisible(true);
 
+        //При закрытии окна "Верх" снова отображаем главное окно
         topFrame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
