@@ -27,8 +27,8 @@ public class AccessoriesButton implements ActionListener {
      * Метод, вызываемый при нажатии на кнопку "Аксессуары".
      *
      * Выполняет следующие действия:
-     *  - Скрывает текущее окно.
-     *  - Создает новое окно для выбора дополнительных аксессуаров.
+     *  - Скрывает главное окно.
+     *  - Создает новое окно "Аксессуары" для выбора дополнительных аксессуаров.
      *  - Добавляет в новое окно кнопки для выбора различных типов аксессуаров.
      *  - При закрытии окна "Аксессуары" восстанавливает видимость главного окна.
      *
@@ -58,7 +58,7 @@ public class AccessoriesButton implements ActionListener {
         accessoryFrame.add(buttonNeck);
         accessoryFrame.setVisible(true);
 
-        //При закрытии окна "Аксессуары" снова отображаем главное окно
+        //При закрытии окна "Аксессуары" снова отображается главное окно
         accessoryFrame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {

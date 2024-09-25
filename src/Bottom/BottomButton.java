@@ -27,8 +27,8 @@ public class BottomButton implements ActionListener {
      * Метод, вызываемый при нажатии на кнопку "Низ".
      *
      * Выполняет следующие действия:
-     *  - Скрывает текущее окно.
-     *  - Создает новое окно для выбора дополнительных предметов нижней одежды.
+     *  - Скрывает главное окно.
+     *  - Создает новое окно "Низ" для выбора дополнительных предметов нижней одежды.
      *  - Добавляет в новое окно кнопки для выбора различных типов нижней одежды.
      *  - При закрытии окна "Низ" восстанавливает видимость главного окна.
      *
@@ -57,7 +57,7 @@ public class BottomButton implements ActionListener {
         bottomFrame.add(buttonSkirts);
         bottomFrame.setVisible(true);
 
-        //При закрытии окна "Низ" снова отображаем главное окно
+        //При закрытии окна "Низ" снова отображается главное окно
         bottomFrame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
